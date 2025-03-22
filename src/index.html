@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BC Cancer API Testing Activity</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+
+    <h1>CS 5500 - BC Cancer API Application Testing Activity</h1>
+
+    <div class="instructions">
+        <h2>Instructions:</h2>
+        <ol>
+            <li>💻 Open Developer Console (Right Click → Inspect → Console Tab) to view the test output.</li>
+            <li>🔄 Load and run the test functions included in <code>bc-cancer-test.js</code>.</li>
+            <li>🧠 Work through each task listed below and write the corresponding tests.</li>
+        </ol>
+    </div>
+
+    <br>
+
+    <div class="task-list">
+        <h2>Task List:</h2>
+        <ol>
+            <li><strong>Task 1:</strong> Write a <code>unit test</code> for <code>formatEventSummary()</code> using new sample data.</li>
+            <ul>
+                <li>Input: <code>[{ city: "Kelowna", event_type: "Awareness Walk", date: "2024-05-01" }]</code></li>
+                <li>Expected Output: <code>[{ city: "Kelowna", type: "Awareness Walk" }]</code></li>
+            </ul>
+
+            <li><strong>Task 2:</strong> Write an <code>integration test</code> for <code>fetchDonors()</code> using a limit of <code>2</code>.</li>
+            <ul>
+                <li>Expected: Return 2 donor objects with valid <code>first_name</code> and <code>city</code> fields.</li>
+            </ul>
+
+            <li><strong>Task 3:</strong> Write an <code>integration test</code> for <code>fetchCities()</code> and verify it contains <code>Vancouver</code>.</li>
+            <ul>
+                <li>Use <code>includes()</code> function to check city presence.</li>
+            </ul>
+
+            <li><strong>Task 4:</strong> Write a <code>negative test</code> for <code>fetchDonors()</code> using a high limit (e.g., <code>1000</code>).</li>
+            <ul>
+                <li>Ensure the response is valid and contains ≤ 1000 entries.</li>
+            </ul>
+        </ol>
+    </div>
+
+    <br>
+
+    <script src="./JS/bc-cancer.js"></script>
+    <script src="./JS/bc-cancer-test.js"></script>
+
+</body>
+</html>
