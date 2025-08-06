@@ -1,36 +1,90 @@
-# This is a basic workflow to help you get started with Actions
+# CS 5500 Demo Pipeline - API Testing Application
 
-name: CI
+name: CS 5500 Demo CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push or pull request events but only for specific branches
   push:
-    branches: [ "prod", "q-a", "stg" ]
+    branches: [ "prod", "q-a", "stg", "main" ]
   pull_request:
-    branches: [ "prod" ]
+    branches: [ "prod", "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # Educational demo job
+  demo-build:
+    name: "Demo Build & Validation"
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      # Checks-out the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # Validate HTML structure
+      - name: Validate HTML Files
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "🔍 Checking HTML file structure..."
+          if [ -f "src/index.html" ]; then
+            echo "✅ Main HTML file found"
+          else
+            echo "❌ HTML file missing"
+            exit 1
+          fi
+
+      # Check JavaScript files
+      - name: Validate JavaScript Files  
+        run: |
+          echo "🔍 Checking JavaScript files..."
+          if [ -f "src/JS/bc-cancer.js" ]; then
+            echo "✅ Core API file found"
+          else
+            echo "❌ Core API file missing"
+            exit 1
+          fi
+          
+          if [ -f "src/JS/bc-cancer-test.js" ]; then
+            echo "✅ Student exercise file found"
+          else
+            echo "❌ Student exercise file missing"
+            exit 1
+          fi
+          
+          if [ -f "src/JS/bc-cancer-test-solution.js" ]; then
+            echo "✅ Solution file found"
+          else
+            echo "❌ Solution file missing"
+            exit 1
+          fi
+
+      # Check CSS files
+      - name: Validate CSS Files
+        run: |
+          echo "🔍 Checking CSS files..."
+          if [ -f "src/CSS/style.css" ]; then
+            echo "✅ Style file found"
+          else
+            echo "❌ Style file missing"
+            exit 1
+          fi
+
+      # Test basic JavaScript syntax
+      - name: Basic JavaScript Syntax Check
+        run: |
+          echo "🔍 Basic syntax validation..."
+          cd src/JS
+          node -c bc-cancer.js && echo "✅ bc-cancer.js syntax OK"
+          node -c bc-cancer-test.js && echo "✅ bc-cancer-test.js syntax OK" 
+          node -c bc-cancer-test-solution.js && echo "✅ bc-cancer-test-solution.js syntax OK"
+
+      # Educational summary
+      - name: Educational Summary
+        run: |
+          echo "🎓 CS 5500 Demo Pipeline Complete!"
+          echo "📚 This pipeline validates the BC Cancer API Testing Activity"
+          echo "🧪 Students can use this as an example of CI/CD for educational projects"
+          echo "🚀 Ready for deployment to GitHub Pages or other hosting service"
