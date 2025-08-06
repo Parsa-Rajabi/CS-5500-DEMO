@@ -186,24 +186,50 @@ testRawFetchDonorsEndpoint();
 
 // Task 1: Unit Test for formatEventSummary
 function testFormatEventSummary_withKelownaEvent() {
+    console.log("🎯 Task 1: INCOMPLETE - Please implement this test");
+    console.log("Hint: Test formatEventSummary() with input: [{ city: 'Kelowna', event_type: 'Awareness Walk', date: '2024-05-01' }]");
+    console.log("Expected output: [{ city: 'Kelowna', type: 'Awareness Walk' }]");
     // Write your test code here
+    // Example structure:
+    // const input = [...];
+    // const expected = [...];
+    // const actual = formatEventSummary(input);
+    // console.assert(JSON.stringify(actual) === JSON.stringify(expected), "Test failed");
 }
 
 // Task 2: Integration Test for fetchDonors with limit = 2
 async function testFetchDonors_shouldReturnTwo() {
-   // Write your test code here
+    console.log("🎯 Task 2: INCOMPLETE - Please implement this test");
+    console.log("Hint: Call fetchDonors(2) and verify it returns exactly 2 donor objects");
+    console.log("Check that each donor has 'first_name' and 'city' properties");
+    // Write your test code here
+    // Example structure:
+    // const result = await fetchDonors(2);
+    // // Check structure and validate data
 }
 
 // Task 3: Integration Test for fetchCities containing 'Vancouver'
 async function testFetchCities_shouldContainVancouver() {
+    console.log("🎯 Task 3: INCOMPLETE - Please implement this test");
+    console.log("Hint: Call fetchCities() and use .includes() to check for 'Vancouver'");
     // Write your test code here
+    // Example structure:
+    // const result = await fetchCities();
+    // // Transform data and check for Vancouver
 }
 
 // Task 4: Negative Test for fetchDonors with large limit
 async function testFetchDonors_withHighLimit_shouldNotFail() {
-   // Write your test code here
+    console.log("🎯 Task 4: INCOMPLETE - Please implement this test");
+    console.log("Hint: Call fetchDonors(1000) and ensure it doesn't crash and returns ≤ 1000 entries");
+    // Write your test code here
+    // Example structure:
+    // const result = await fetchDonors(1000);
+    // // Verify structure and reasonable limits
 }
 
+// Run student exercises (these will show as incomplete until implemented)
+console.log("=== STUDENT EXERCISES ===");
 testFormatEventSummary_withKelownaEvent();
 testFetchDonors_shouldReturnTwo();
 testFetchCities_shouldContainVancouver();
